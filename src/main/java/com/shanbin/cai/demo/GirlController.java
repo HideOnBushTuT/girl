@@ -10,6 +10,9 @@ public class GirlController {
     @Autowired
     private GirlRepo girlRepo;
 
+    @Autowired
+    private GirlService girlService;
+
     @GetMapping(value = "/girls")
     public List<Girl> girlList() {
         return girlRepo.findAll();
@@ -43,6 +46,12 @@ public class GirlController {
     @DeleteMapping(value = "/girls/{id}")
     public void girlDelete(@PathVariable("id") Integer id) {
         girlRepo.deleteById(id);
+    }
+
+
+    @PostMapping(value = "/girls/two")
+    public void  girlTwo() {
+        girlService.insertTwo();
     }
 
 }
