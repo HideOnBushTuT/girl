@@ -25,6 +25,7 @@ public class GirlController {
 
     @PostMapping(value = "/girls")
     public Girl girlAdd(@Valid Girl girl, BindingResult bindingResult) {
+        System.out.println(222222);
         if (bindingResult.hasErrors()) {
             System.out.println(bindingResult.getFieldError().getDefaultMessage());
             return null;

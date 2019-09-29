@@ -7,6 +7,15 @@ import javax.validation.constraints.Min;
 
 @Entity
 public class Girl {
+    @Override
+    public String toString() {
+        return "Girl{" +
+                "id=" + id +
+                ", cpuSize='" + cpuSize + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
     @Id
     @GeneratedValue
     private Integer id;
