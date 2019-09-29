@@ -1,7 +1,7 @@
-package com.shanbin.cai.demo;
+package com.shanbin.cai.demo.controller;
 
+import com.shanbin.cai.demo.props.GirlConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 

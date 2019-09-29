@@ -1,5 +1,7 @@
-package com.shanbin.cai.demo;
+package com.shanbin.cai.demo.service;
 
+import com.shanbin.cai.demo.repo.GirlRepo;
+import com.shanbin.cai.demo.domain.Girl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

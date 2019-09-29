@@ -1,4 +1,4 @@
-package com.shanbin.cai.demo;
+package com.shanbin.cai.demo.props;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
