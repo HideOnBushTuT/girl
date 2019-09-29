@@ -1,8 +1,10 @@
 package com.shanbin.cai.demo.controller;
 
+import com.shanbin.cai.demo.domain.Result;
 import com.shanbin.cai.demo.repo.GirlRepo;
 import com.shanbin.cai.demo.domain.Girl;
 import com.shanbin.cai.demo.service.GirlService;
+import com.shanbin.cai.demo.service.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -24,14 +26,13 @@ public class GirlController {
     }
 
     @PostMapping(value = "/girls")
-    public Girl girlAdd(@Valid Girl girl, BindingResult bindingResult) {
+    public Result<Girl> girlAdd(@Valid Girl girl, BindingResult bindingResult) {
         System.out.println(222222);
         if (bindingResult.hasErrors()) {
-            System.out.println(bindingResult.getFieldError().getDefaultMessage());
-            return null;
+            return ResultUtil.error(1,bindingResult.getFieldError().getDefaultMessage());
         }
         System.out.println(girl.getCpuSize());
-        return girlRepo.save(girl);
+        return ResultUtil.success(girlRepo.save(girl));
     }
 
     @GetMapping(value = "/girls/{id}")
@@ -62,4 +63,8 @@ public class GirlController {
         girlService.insertTwo();
     }
 
+    @GetMapping(value = "/girls/age/{id}")
+    public void getGirlAge(@PathVariable("id") Integer id) throws Exception {
+        girlService.getAge(id);
+    }
 }

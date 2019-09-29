@@ -1,5 +1,7 @@
 package com.shanbin.cai.demo.service;
 
+import com.shanbin.cai.demo.ResultEnum;
+import com.shanbin.cai.demo.exception.GirlException;
 import com.shanbin.cai.demo.repo.GirlRepo;
 import com.shanbin.cai.demo.domain.Girl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +27,16 @@ public class GirlService {
         girlRepo.save(girlB);
     }
 
+
+    public void getAge(Integer id) throws Exception {
+        Girl girl = girlRepo.findById(id).get();
+        Integer age = girl.getAge();
+        if (age < 10) {
+            throw new GirlException(ResultEnum.PRIMARY_SCHOOL);
+        } else if (age > 10 && age < 16) {
+            throw  new GirlException(ResultEnum.MIDDLE_SCHOOL);
+        }
+        //
+    }
 
 }
