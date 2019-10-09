@@ -25,8 +25,8 @@ public class Swagger2Config {
         return new Docket(DocumentationType.SWAGGER_2)
                     .groupName("CustomApi")
                     .select()
-                    .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
-                    .paths(PathSelectors.regex("/girls"))
+                    .apis(RequestHandlerSelectors.basePackage("com.shanbin.cai.demo.controller"))
+                    .paths(PathSelectors.any())
                     .build()
                     .apiInfo(apiinfo())
                     .enable(true);
@@ -35,8 +35,9 @@ public class Swagger2Config {
     private ApiInfo apiinfo() {
         return new ApiInfoBuilder()
                     .title("测试接口文档")
-                    .description("...")
-                    .version("1.0")
+                    .description("这是测试接口文档")
+                    .termsOfServiceUrl("https://swagger.io/")
+                    .version("1.0.0")
                     .build();
     }
 }
