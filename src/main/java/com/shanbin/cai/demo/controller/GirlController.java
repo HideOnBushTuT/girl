@@ -36,7 +36,7 @@ public class GirlController {
     public Result<Girl> girlAdd(@Valid Girl girl, BindingResult bindingResult) {
         System.out.println(222222);
         if (bindingResult.hasErrors()) {
-            return ResultUtil.error(1,bindingResult.getFieldError().getDefaultMessage());
+            return ResultUtil.error(1, bindingResult.getFieldError().getDefaultMessage());
         }
         System.out.println(girl.getCpuSize());
         return ResultUtil.success(girlRepo.save(girl));
@@ -46,7 +46,7 @@ public class GirlController {
 //    @ApiImplicitParams({
 //            @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Integer")
 //    })
-    @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Integer")
+    @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Long")
     @GetMapping(value = "/girls/{id}")
     public Girl girlFindOne(@PathVariable("id") Integer id) {
         return  girlRepo.findById(id).get();
